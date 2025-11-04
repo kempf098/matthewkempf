@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Kempf | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Add canonical URL -->
+    <link rel="canonical" href="https://matthewkempf.com" />
+    <style>
+        :root {
+            --primary-color: #2b2d42;
+            --accent-color: #6c63ff;
+            --text-color: #2b2d42;
+            --background-color: #f8f9fa;
+            --card-background: rgba(255, 255, 255, 0.98);
+            --secondary-accent: #ff6b6b;
+            --tertiary-accent: #4ecdc4;
+            --nav-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            padding-top: var(--nav-height);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .navbar-hidden {
+            transform: translateY(-100%);
+        }
+
+        .navbar-scrolled {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Enhanced Navigation Icons */
+        .nav-btn i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-btn:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Custom button animations */
+        @keyframes iconPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes iconRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .career-btn:hover i {
+            animation: iconPulse 1s infinite;
+        }
+
+        .discover-btn:hover i {
+            animation: iconRotate 2s infinite linear;
+        }
+
+        .game-btn:hover i {
+            animation: iconPulse 0.5s infinite;
+        }
+
+        .hobbies-btn:hover i {
+            animation: iconPulse 1.5s infinite;
+        }
+
+        .resume-btn:hover i {
+            animation: iconRotate 1.5s infinite ease-in-out;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            border: 2px solid transparent;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .career-btn {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .discover-btn {
+            border-color: var(--secondary-accent);
+            color: var(--secondary-accent);
+        }
+
+        .game-btn {
+            border-color: #00b894;
+            color: #00b894;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .game-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 184, 148, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .game-btn:hover::after {
+            left: 100%;
+        }
+
+        .game-btn:hover {
+            background: #00b894;
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+        }
+
+        .game-btn.active {
+            background: #00b894;
+            color: white;
+        }
+
+        /* Game button pulse animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .game-btn:hover i {
+            animation: pulse 1s infinite;
+        }
+
+        .hobbies-btn {
+            border-color: #9b59b6;
+            color: #9b59b6;
+        }
+
+        .resume-btn {
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: currentColor;
+            color: white;
+        }
+
+        /* Enhanced button interactions */
+        .career-btn {
+            border-color: #3498db;
+            color: #3498db;
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), transparent);
+        }
+
+        .career-btn:hover {
+            background: #3498db;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .discover-btn {
+            border-color: #e67e22;
+            color: #e67e22;
+            background: linear-gradient(45deg, rgba(230, 126, 34, 0.1), transparent);
+        }
+
+        .discover-btn:hover {
+            background: #e67e22;
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+        }
+
+        .hobbies-btn {
+            border-color: #9b59b6;
+            color: #9b59b6;
+            background: linear-gradient(45deg, rgba(155, 89, 182, 0.1), transparent);
+        }
+
+        .hobbies-btn:hover {
+            background: #9b59b6;
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+        }
+
+        .resume-btn {
+            border-color: #e74c3c;
+            color: #e74c3c;
+            background: linear-gradient(45deg, rgba(231, 76, 60, 0.1), transparent);
+        }
+
+        .resume-btn:hover {
+            background: #e74c3c;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .nav-links a:not(.nav-btn)::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:not(.nav-btn):hover::after,
+        .nav-links a:not(.nav-btn).active::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(45deg);
+        }
+
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, var(--accent-color), var(--tertiary-accent), var(--secondary-accent), #a8e6cf);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .welcome-card {
+            background: var(--card-background);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transform: scale(1);
+        }
+
+        .primary-button {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            width: 100%;
+        }
+
+        .feature-card {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .welcome-card {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* Project Styles */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background: var(--background-color);
+            color: var(--text-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: var(--card-background);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            --primary-color: #e9ecef;
+            --text-color: #e9ecef;
+            --background-color: #1a1c2e;
+            --card-background: rgba(43, 45, 66, 0.95);
+            --accent-color: #8c7fff;
+            --secondary-accent: #ff7e7e;
+            --tertiary-accent: #64dfdf;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(43, 45, 66, 0.95);
+        }
+
+        /* Responsive Design */
+        /* Mobile Navigation Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                background: var(--card-background);
+                padding: 1rem;
+                flex-direction: column;
+                align-items: stretch;
+                backdrop-filter: blur(10px);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            .nav-links.show {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-btn {
+                text-align: left;
+                padding: 1rem;
+                border-radius: 8px;
+                margin: 0.5rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span>Portfolio</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="career.html" class="nav-btn career-btn">
+                    <i class="fas fa-briefcase"></i> Career
+                </a>
+                <a href="discover.html" class="nav-btn discover-btn">
+                    <i class="fas fa-compass"></i> Discover
+                </a>
+                <a href="game.html" class="nav-btn game-btn" onclick="playGameButtonSound(event)">
+                    <i class="fas fa-gamepad"></i> Game
+                    <audio id="gameButtonSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+                </a>
+                <script>
+                function playGameButtonSound(event) {
+                    const sound = document.getElementById('gameButtonSound');
+                    sound.play().catch(error => console.log('Sound play failed:', error));
+                }
+                </script>
+                <a href="hobbies.html" class="nav-btn hobbies-btn">
+                    <i class="fas fa-heart"></i> Hobbies
+                </a>
+                <a href="resume.html" class="nav-btn resume-btn">
+                    <i class="fas fa-file-alt"></i> Resume
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="background-animation"></div>
+    
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="welcome-card" data-aos="fade-up">
+                <h1>Welcome to My <span class="highlight typing-text">Creative Space</span></h1>
+                <p class="subtitle" data-aos="fade-up" data-aos-delay="200">Experience a journey through innovation and design</p>
+                
+                <div class="cta-buttons" data-aos="fade-up" data-aos-delay="400">
+                    <button class="button primary-button" onclick="showModal('contact')">
+                        <i class="fas fa-rocket"></i> Get Started
+                    </button>
+                    <button class="button secondary-button" onclick="showModal('projects')">
+                        <i class="fas fa-images"></i> View Portfolio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">What I Do</h2>
+            <div class="features">
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fas fa-paint-brush feature-icon"></i>
+                    <h3>Creative Design</h3>
+                    <p>Innovative and unique designs that capture attention</p>
+                    <div class="card-hover-effect"></div>
+                </div>
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fas fa-code feature-icon"></i>
+                    <h3>Clean Code</h3>
+                    <p>Efficient and maintainable development practices</p>
+                    <div class="card-hover-effect"></div>
+                </div>
+                <div class="feature-card" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fas fa-mobile-alt feature-icon"></i>
+                    <h3>Responsive</h3>
+                    <p>Perfect experience on all devices</p>
+                    <div class="card-hover-effect"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="https://picsum.photos/400/300?random=1" alt="Project 1">
+                        <div class="project-overlay">
+                            <h3>Project One</h3>
+                            <p>Web Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="https://picsum.photos/400/300?random=2" alt="Project 2">
+                        <div class="project-overlay">
+                            <h3>Project Two</h3>
+                            <p>UI/UX Design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+            <div class="contact-content">
+                <form class="contact-form" data-aos="fade-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" class="form-input"></textarea>
+                    </div>
+                    <button type="submit" class="button primary-button">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links" data-aos="fade-up">
+                <a href="#" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <p class="copyright">© 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Typing effect
+        function typeText() {
+            const text = "Creative Space";
+            const element = document.querySelector('.typing-text');
+            let index = 0;
+
+            function type() {
+                if (index < text.length) {
+                    element.textContent = text.slice(0, index + 1);
+                    index++;
+                    setTimeout(type, 100);
+                }
+            }
+
+            type();
+        }
+
+        // Theme toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Modal functionality
+        function showModal(content) {
+            const modal = document.getElementById('modal');
+            const modalBody = modal.querySelector('.modal-body');
+            
+            let modalContent = '';
+            if (content === 'projects') {
+                modalContent = `
+                    <h2>My Portfolio</h2>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <h3>Project Details Coming Soon</h3>
+                            <p>Stay tuned for exciting updates!</p>
+                        </div>
+                    </div>
+                `;
+            } else if (content === 'contact') {
+                modalContent = `
+                    <h2>Let's Connect!</h2>
+                    <form class="contact-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="button primary-button">Send</button>
+                    </form>
+                `;
+            }
+
+            modalBody.innerHTML = modalContent;
+            modal.style.display = 'flex';
+            
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }
+
+        // Close modal
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        });
+
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('modal');
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.classList.add('navbar-hidden');
+            } else {
+                navbar.classList.remove('navbar-hidden');
+            }
+
+            if (currentScroll === 0) {
+                navbar.classList.remove('navbar-scrolled');
+            } else {
+                navbar.classList.add('navbar-scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-btn')) {
+                navLinks.classList.remove('show');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Add active state to current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            typeText();
+        });
+    </script>
+</body>
+</html>

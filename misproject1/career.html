@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career | Matthew Kempf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+        .career-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .career-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: var(--secondary-color);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .career-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(42, 93, 42, 0.2);
+            border-left-color: var(--secondary-color);
+        }
+
+        .career-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .career-card h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .career-card p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .career-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .career-details li {
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .career-details li i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent-color);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .timeline-date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .goals-list {
+            background: var(--gray);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .goals-list h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .goals-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .goals-list li {
+            padding: 0.75rem 0;
+            color: var(--text-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .goals-list li i {
+            color: var(--secondary-color);
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .career-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .timeline {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-item::before {
+                left: -1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="site-title">Matthew Kempf</div>
+            <p class="site-subtitle">Portfolio</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="career.html" class="nav-link active">
+                        <i class="fas fa-briefcase"></i>
+                        Career
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="discover.html" class="nav-link">
+                        <i class="fas fa-compass"></i>
+                        Discover
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="hobbies.html" class="nav-link">
+                        <i class="fas fa-heart"></i>
+                        Hobbies
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">
+                        <i class="fas fa-gamepad"></i>
+                        Memory Game
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        Resume
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <div class="career-container">
+            <div class="page-header">
+                <h1>Career Aspirations</h1>
+                <p>Exploring my professional journey and future goals</p>
+            </div>
+
+            <section class="career-section">
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Career Interests
+                </h2>
+                <div class="career-grid">
+                    <div class="career-card">
+                        <i class="chess career-icon"></i>
+                        <h2>General Management</h2>
+                        <p>I'm very interested in the general management of sports organizations and businesses.</p>
+                        <ul class="career-details">
+                            <li><i class="fas fa-check-circle"></i> Systems Management</li>
+                            <li><i class="fas fa-check-circle"></i> Business Technology</li>
+                            <li><i class="fas fa-check-circle"></i> Problem Solving</li>
+                        </ul>
+                    </div>
+
+                    <div class="career-card">
+                        <i class="sunglasses-icon"></i>
+                        <h2>Sports Agent</h2>
+                        <p>I'm drawn to the strategic and operational aspects of Sports. I am interested in the role of a sports agent and how to help athletes achieve their goals.</p>
+                        <ul class="career-details">
+                            <li><i class="fas fa-check-circle"></i> Operations</li>
+                            <li><i class="fas fa-check-circle"></i> Strategic Planning</li>
+                            <li><i class="fas fa-check-circle"></i> Team Leadership</li>
+                        </ul>
+                    </div>
+
+                    <div class="career-card">
+                        <i class="stat-number career-icon"></i>
+                        <h2>Sports analytics analyst</h2>
+                        <p> I am interested in the role of a sports analytics analyst because I am a very data-driven person and I love to analyze data.</p>
+                        <ul class="career-details">
+                            <li><i class="fas fa-check-circle"></i> Numbers</li>
+                            <li><i class="fas fa-check-circle"></i> statistics</li>
+                            <li><i class="fas fa-check-circle"></i> Data analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="career-section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education & Training
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>High School Diploma</h3>
+                        <div class="timeline-date">Rush City High School • Rush City, MN • 2025</div>
+                        <p>Completed my high school education with a focus on preparing for college and future career opportunities.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3> College Education</h3>
+                        <div class="timeline-date">Planned</div>
+                        <p>Planning to pursue higher education to further develop my skills in Sports business management</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="career-section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Professional Experience
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Driveway Sealer</h3>
+                        <div class="timeline-date">Konkrete Asphalt Maintenance • Harris, Minnesota • June 2025 - August 2025</div>
+                        <p>Provided high-quality driveway sealing and maintenance services. Developed skills in customer service, project management, and attention to detail.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Caretaker</h3>
+                        <div class="timeline-date">Rusheba Township • Rush City, Minnesota • September 2024 - May 2025</div>
+                        <p>Managed property maintenance and prepared nutritious meals following dietary guidelines. Gained experience in operational management and client support.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="career-section">
+                <h2 class="section-title">
+                    <i class="fas fa-bullseye"></i>
+                    Career Goals
+                </h2>
+                <div class="goals-list">
+                    <h3>Short-term Goals</h3>
+                    <ul>
+                        <li><i class="fas fa-arrow-right"></i> Complete college education in Sports business management</li>
+                        <li><i class="fas fa-arrow-right"></i> Gain more professional experience in technology or business operations</li>
+                        <li><i class="fas fa-arrow-right"></i> Develop technical skills through hands-on projects and training</li>
+                        <li><i class="fas fa-arrow-right"></i> Build a strong professional network in the sports business community</li>
+                    </ul>
+                </div>
+                <div class="goals-list" style="margin-top: 2rem;">
+                    <h3>Long-term Goals</h3>
+                    <ul>
+                        <li><i class="fas fa-arrow-right"></i> Establish a successful career in Sports business management</li>
+                        <li><i class="fas fa-arrow-right"></i> Take on leadership roles and contribute to organizational success</li>
+                        <li><i class="fas fa-arrow-right"></i> Continue learning and staying current with industry trends and technologies</li>
+                        <li><i class="fas fa-arrow-right"></i> Make a positive impact through connections with sports organizations and businesses</li>
+                </div>
+            </section>
+
+            <section class="career-section">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Key Skills & Strengths
+                </h2>
+                <div class="career-grid">
+                    <div class="career-card">
+                        <i class="fas fa-comments career-icon"></i>
+                        <h2>Communication</h2>
+                        <p>Strong communication skills developed through customer service and teamwork experiences.</p>
+                    </div>
+                    <div class="career-card">
+                        <i class="fas fa-puzzle-piece career-icon"></i>
+                        <h2>Problem Solving</h2>
+                        <p>Solution-oriented thinking with a focus on finding effective and efficient resolutions.</p>
+                    </div>
+                    <div class="career-card">
+                        <i class="fas fa-handshake career-icon"></i>
+                        <h2>Teamwork</h2>
+                        <p>Collaborative approach with proven ability to work effectively in team environments.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Add active class to current page in navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

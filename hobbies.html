@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies | Matthew Kempf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+        .hobbies-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hobby-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(42, 93, 42, 0.2);
+            border-left-color: var(--secondary-color);
+        }
+
+        .hobby-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hobby-card h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hobby-card p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .hobby-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hobby-details li {
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hobby-details li i {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .hobby-highlight {
+            background: var(--gray);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .hobby-highlight p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text-color);
+        }
+
+        .hobby-image {
+            margin-top: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .hobby-image:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(42, 93, 42, 0.2);
+        }
+
+        .hobby-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-image:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="site-title">Matthew Kempf</div>
+            <p class="site-subtitle">Portfolio</p>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="career.html" class="nav-link">
+                        <i class="fas fa-briefcase"></i>
+                        Career
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="discover.html" class="nav-link">
+                        <i class="fas fa-compass"></i>
+                        Discover
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="hobbies.html" class="nav-link active">
+                        <i class="fas fa-heart"></i>
+                        Hobbies
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">
+                        <i class="fas fa-gamepad"></i>
+                        Memory Game
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        Resume
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <div class="hobbies-container">
+            <div class="page-header">
+                <h1>My Hobbies</h1>
+                <p>Discover the activities and interests that bring joy and balance to my life</p>
+            </div>
+
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <i class="fas fa-running hobby-icon"></i>
+                    <h2>Running</h2>
+                    <p>I love running in my free time. My favorite distance is the 5k but I really like how good it is for my health.</p>
+                    <ul class="hobby-details">
+                        <li><i class="fas fa-check-circle"></i> 5K races</li>
+                        <li><i class="fas fa-check-circle"></i> Trail running</li>
+                        <li><i class="fas fa-check-circle"></i> Health & fitness</li>
+                    </ul>
+                    <div class="hobby-image">
+                        <img src="images/image000001.JPG" alt="Running">
+                    </div>
+                </div>
+
+                <div class="hobby-card">
+                    <i class="fas fa-basketball-ball hobby-icon"></i>
+                    <h2>Basketball</h2>
+                    <p>I enjoy playing basketball in my free time. I enjoy the challenge of pushing myself to new limits and the feeling of accomplishment after a good game.</p>
+                    <ul class="hobby-details">
+                        <li><i class="fas fa-check-circle"></i> Shooting hoops</li>
+                        <li><i class="fas fa-check-circle"></i> Team games</li>
+                        <li><i class="fas fa-check-circle"></i> Practicing</li>
+                    </ul>
+                    <div class="hobby-image">
+                        <img src="images/IMG_7545.JPG" alt="Basketball">
+                    </div>
+                </div>
+
+                <div class="hobby-card">
+                    <i class="fas fa-football-ball hobby-icon"></i>
+                    <h2>Football</h2>
+                    <p>I loved playing football in my free time. It has always been a passion of mine and I hope to pursue it in college.</p>
+                    <ul class="hobby-details">
+                        <li><i class="fas fa-check-circle"></i> Games</li>
+                        <li><i class="fas fa-check-circle"></i> Touchdowns</li>
+                        <li><i class="fas fa-check-circle"></i> NFL Teams</li>
+                    </ul>
+                    <div class="hobby-image">
+                        <img src="images/IMG_6921.JPG" alt="Football Game">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Add active class to current page in navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
